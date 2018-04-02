@@ -4,8 +4,8 @@ require("dotenv").config();
 var keys = require("./keys.js");
 
 var inputString = process.argv;
-var operand = inputString[2];
-var searchTerm = inputString[3];
+//var operand = inputString[2];
+// var searchTerm = inputString[3];
 var twitter = require("twitter");
 var Spotify = require("node-spotify-api");
 var request = require('request');
@@ -36,20 +36,19 @@ var getArtistNames = function(artist) {
 };
 
 //Function for finding songs on Spotify
-var getMeSpotify = function(songName) {
+var getMeSpotify = function(searchTerm) {
   //If no song is provided then your program will default to "The Sign" by Ace of Base.
-  if (songName === undefined) {
-    songName = 'The Sign';
+  if (searchTerm === undefined) {
+    searchTerm = 'The-Sign';
   };
 
-  clientS.search({ type: 'track', query: songName }, function(err, data) {
-    if (err) {
-      console.log('Error occurred: ' + err);
-      return;
-    }
-
-    var songs = data.tracks.items;
-    var data = []; //empty array to hold data
+clientS.search({ type: 'track', query: searchTerm, limit: 2 }, function(err, data) {
+  if (err) {
+    return console.log('Error occurred: ' + err);
+  } 
+  
+  var songs = data.tracks.items;
+  var data = []; //empty array to hold data
 
     for (var i = 0; i < songs.length; i++) {
       data.push({
@@ -62,16 +61,40 @@ var getMeSpotify = function(songName) {
     console.log(data);
   });
 };
-
-
 //Main Processes
 //---------------------------------------------------
-if (operand === "my-tweets"){
-	getTweets();
+// if (operand === "my-tweets"){
+// 	getTweets();
+// }
+// else if (operand === "spotify-this-song"){
+//   getMeSpotify();
+// }
+var pick = function(caseData, functionData) {
+  switch (caseData) {
+    case 'my-tweets':
+      getTweets();
+      break;
+    case 'spotify-this-song':
+      getMeSpotify(functionData);
+      break;
+    // case 'movie-this':
+    //   getMeMovie(functionData);
+    //   break;
+    // case 'do-what-it-says':
+    //   doWhatItSays();
+    //   break;
+    // default:
+    //   console.log('LIRI doesn\'t know that');
+  }
 }
-else if (operand === "spotify-this-song"){
-  getMeSpotify()
-}
+//run this on load of js file
+var runThis = function(argOne, argTwo) {
+  pick(argOne, argTwo);
+};
+
+runThis(process.argv[2], process.argv[3]);
+//---------------------------------------------------
+
 
 // TWO `node liri.js spotify-this-song '<song name here>'`
 
