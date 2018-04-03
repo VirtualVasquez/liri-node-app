@@ -12,7 +12,7 @@ var fs = require('fs');
 
 var clientS = new Spotify(keys.spotify);
 var client = new twitter(keys.twitter);
-
+var clientO = keys.omdb.API_Key
 //Functions
 //---------------------------------------------------
 var getTweets = function() {
@@ -42,7 +42,7 @@ var getMeSpotify = function(searchTerm) {
     searchTerm = "The-Sign";
   };
 
-clientS.search({ type: 'track', query: searchTerm, limit: 2 }, function(err, data) {
+clientS.search({ type: 'track', query: searchTerm, limit: 5 }, function(err, data) {
   if (err) {
     return console.log('Error occurred: ' + err);
   } 
@@ -68,7 +68,7 @@ var getMeMovie = function(movieName) {
     movieName = 'Mr Nobody';
   }
 
-  var queryURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+  var queryURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=" + clientO;
 
   request(queryURL, function(error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -128,5 +128,12 @@ var runThis = function(argOne, argTwo) {
   pick(argOne, argTwo);
 };
 
-runThis(process.argv[2], process.argv[3]);
+//for strings composed more of one word, this make the term searchable
+var bigString = '';
+for(var i =3; i<process.argv.length; i++){
+bigString += process.argv[i] +' ';
+}
+
+runThis(process.argv[2], bigString);
 //---------------------------------------------------
+
