@@ -8,6 +8,7 @@ var inputString = process.argv;
 var twitter = require("twitter");
 var Spotify = require("node-spotify-api");
 var request = require('request');
+var fs = require('fs');
 
 var clientS = new Spotify(keys.spotify);
 var client = new twitter(keys.twitter);
@@ -38,7 +39,7 @@ var getArtistNames = function(artist) {
 var getMeSpotify = function(searchTerm) {
   //If no song is provided then your program will default to "The Sign" by Ace of Base.
   if (searchTerm === undefined) {
-    searchTerm = 'The-Sign';
+    searchTerm = "The-Sign";
   };
 
 clientS.search({ type: 'track', query: searchTerm, limit: 2 }, function(err, data) {
@@ -91,6 +92,18 @@ var getMeMovie = function(movieName) {
 
 }
 
+var doWhatItSays = function(){
+  fs.readFile("random.txt", "utf8", function(error, data){
+    console.log(data);
+    var dataArr = data.split(',')
+
+    if (dataArr.length == 2) {
+      pick(dataArr[0], dataArr[1]);
+    } else if (dataArr.length == 1) {
+      pick(dataArr[0]);
+    }
+  })
+}
 //Function for getting movie information, caseData = move-this <movie name here>
 //Main Processes
 //---------------------------------------------------
@@ -108,8 +121,6 @@ var pick = function(caseData, functionData) {
     case 'do-what-it-says':
       doWhatItSays();
       break;
-    default:
-      console.log('LIRI doesn\'t know that');
   }
 }
 //run this on load of js file
@@ -119,12 +130,3 @@ var runThis = function(argOne, argTwo) {
 
 runThis(process.argv[2], process.argv[3]);
 //---------------------------------------------------
-
-// FOUR    * `do-what-it-says`
-//     `node liri.js do-what-it-says`
-   
-//    * Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
-     
-//      * It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
-     
-//      * Feel free to change the text in that document to test out the feature for other commands.
