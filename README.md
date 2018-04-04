@@ -16,7 +16,7 @@ To be able to utilize LIRI in the terminal/bash window, the following commands m
 * node liri.js my-tweets
 	* Shows the last 20 tweets and date of creation in the terminal/bash window
 
-* node liri.js spotify-this-song '<song name here>'
+* node liri.js spotify-this-song 'song name here'
 	* In the terminal/bash window, the following infomrmation about the song will be displayed
 		* Artist(s)
 		* The song's name
@@ -24,7 +24,7 @@ To be able to utilize LIRI in the terminal/bash window, the following commands m
 		* The album of origin
 	* If no song is submitted, the default search term is "The Sign"
 
-* node liri.js movie-this '<movie name here>'
+* node liri.js movie-this 'movie name here'
 	* This command generates the following information, in order
 		   * Title of the movie.
    		   * Year the movie came out.
@@ -52,6 +52,5 @@ The purpose of this was to learn how about Node.JS, how it works, and how to use
 
 * [Request](https://www.npmjs.com/package/request)
 	* This is used to get data from the [OMDB API](http://www.omdbapi.com/)
-		*
 
 * [DotEnv](https://www.npmjs.com/package/dotenv)
