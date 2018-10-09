@@ -1,9 +1,10 @@
-# Trivia Game
-Week 10 Assignment: LIRI Bot
+# LIRI Bot
+
+Hey LIRI, demonstrate APIs and Node.js in the terminal.
 
 ## About LIRI Bot
 
-This is an assignment that was given during the tenth week of University of Miami Coding bootcamp. LIRI, or Language Interpretation and Recognition Interface, is a command line node app capable of displaying the last twenty tweets from the linked Twitter account (a sample account, in this case), search for song information from Spotify from a submitted track query, or generate movie information from the OMDB API.
+LIRI, or Language Interpretation and Recognition Interface, is a command line node app capable of displaying the last twenty tweets from the linked Twitter account (a sample account, in this case), search for song information from Spotify from a submitted track query, or generate movie information from the OMDB API.
 
 **NOTE:** You will need need API keys of your own to make the application work.
 
@@ -42,7 +43,7 @@ To be able to utilize LIRI in the terminal/bash window, the following commands m
 
 ## Purpose
 
-The purpose of this was to learn how about Node.JS, how it works, and how to use it. It was also to learn about npm packages that are utilzed in Node.JS to draw information and functionality from other web applications. The main benefits from this assignment was learning how to read documents from new or unfamiliar applications, and that experimentation is needed to see how they work as needed.
+The purpose of this was to learn how about Node.JS, how it works, and how to use it. It was also to learn about npm packages that are utilzed in Node.JS to draw information and functionality from other web applications. From this project I've learned how to read documents from new or unfamiliar applications, and that experimentation is needed to see how they work as needed.
 
 ## Node Packages used
 
