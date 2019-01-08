@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "dotenv": "^5.0.1",
+    "express": "^4.16.4",
     "fs": "0.0.1-security",
     "node-spotify-api": "^1.0.7",
     "package.json": "^2.0.1",
+    "path": "^0.12.7",
     "request": "^2.88.0",
     "spotify": "^0.3.0",
     "twitter": "^1.7.1"
