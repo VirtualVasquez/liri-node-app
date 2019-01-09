@@ -7,27 +7,43 @@
 </head>
 <body>
     <div id="liri">
-        <h1>Hello, I'm LIRI.</h1>
-        <h1>How can I help you today?</h1>
-        <div id="bControls" class="cCenter">
-            <button>Get my last twenty tweets</button>
-            <button> Get Me Music Info</button>
-            <button>Get Me Movie Info</button>
-            <button>Um, nothing, what do you want to do?</button>
+
+        <div id="message">
+            <h1>Hello, I'm LIRI.</h1>
+            <h1>How can I help you today?</h1>
         </div>
-        <div id="tweets" class="cCenter">
-            <h2>Sure, here they are.</h2>
-        </div>
-        <div id="spotify" class="cCenter">
-            <h2>What song do you want to know more about?</h2>
-            <form >
-                <input type="text" name="songName" placeholder="Song Name Only ">
-                <input type="submit" value="Submit">
-              </form> 
-        </div>
-        <div>
+        
+        <div id="user">
+          <div id="menu" class="cCenter">
+              <button id="getTweets">Get my last twenty tweets</button>
+              <button id="getSong"> Get Me Song Info</button>
+              <button id="getMovie">Get Me Movie Info</button>
+              <button id="getRandom">Um, what do you want to do?</button>
+          </div>
+
+          <div id="spotify">
+            <form>
+              <input type="text" name="songName" placeholder="Song Name Only ">
+              <input type="submit" value="Submit">
+            </form> 
+          </div>
+
+          <div id="movie">
+            <form>
+              <input type="text" name="movieName" placeholder="Movie Name Only ">
+              <input type="submit" value="Submit">
+            </form>                 
+          </div>
+
+          <div id="results" class="cCenter">
+            <button>Main Menu</button> 
+            <div id="content">
+
+            </div>
+          </div>
 
         </div>
     </div>
+    <script type="text/javascript" src="liri.js"></script> 
 </body>
 </html>

@@ -9,10 +9,15 @@ button{
     display:block;
     width: 100%;
     margin: 1%;
-    padding: 2%;
+    padding: 15px;
 }
 
-#cCenter{
+.cCenter{
     margin-left: 25%;
     width: 50%;
 }
+
+/* #spotify, #movie, #results{
+    display: none;
+} */
+

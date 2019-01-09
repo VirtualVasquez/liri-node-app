@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // ================================================================================
 
-require("./liri.html")(app);
+require("liri.html")(app);
 
 
 // Starts the server to begin listening

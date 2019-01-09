@@ -136,4 +136,8 @@ bigString += process.argv[i] +' ';
 
 runThis(process.argv[2], bigString);
 //---------------------------------------------------
+// CODE FOR HTML
+//---------------------------------------------------
+let tweetButton = document.querySelector("#getTweets");
+
 
